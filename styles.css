@@ -1,0 +1,18 @@
+h1 {
+    color: #FD841F;
+    font-size: 50px;
+}
+
+h2 {
+    color: #0085Fd;
+    font-size: 40px;
+}
+
+h3{
+    color: #e55a00;
+    font-size: 25px;
+}
+
+ul li{
+    list-style-type:square;
+}
