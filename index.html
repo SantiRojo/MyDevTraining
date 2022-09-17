@@ -18,7 +18,7 @@
             <!--Párrafo inicial-->
             <p>En este sitio aplicaré lo repasado de html, CSS y JavaScript.</p>
             <!--Subtítulo h2-->
-            <h2>Tipos de listas</h2>
+            <h2 id="listas">Tipos de listas</h2>
             <!--Subtítulo h3-->
             <h3>Listas ordenadas (ol)</h3>
             <!--Lista ordenada-->
@@ -78,7 +78,7 @@
                 <dd>Etiquetas utilizadas para representar párrafos.</dd>
             </dl>
 
-            <h3>Tablas</h3>
+            <h2>Tablas</h2>
 
             <p>Sirven para representar información tabulada, en filas y columnas.</p>
             <!--Tabla-->
@@ -97,18 +97,20 @@
                 </tr>
             </table>
 
-            <h3>Formularios</h3>
-
-            <h4>Inputs</h4>
+            <h2>Formularios</h2>
 
             <form action="">
                 <!--Inputs-->
+                <label for="nombre">Name</label>
                 <input type="text" name="nombre" placeholder="Nombre">
 
+                <label for="apellido">Lastname</label>
                 <input type="text" name="apellido" placeholder="Apellido">
 
+                <label for="email">Email</label>
                 <input type="email" name="email" placeholder="mail@example.com">
 
+                <label for="password">Password</label>
                 <input type="password" name="password" placeholder="Password">
 
                 <textarea cols="100" rows="10" placeholder="Text area"></textarea>
@@ -133,7 +135,43 @@
                 <!--Check-->
                 <div>Acepta términos y condiciones</div>
                 <input type="checkbox" name="acepta" value="1">
+
+                <!--Select-->
+                <fieldset>
+                    <legend>Talle de remera</legend>
+                        <select name="talles">
+                            <option value="L">Large</option>
+                            <option value="M">Medium</option>
+                            <option value="S">Small</option>
+                        </select>
+                </fieldset>
+
             </form>
+
+            <!--Enlaces-->
+            <h2>Enlaces</h2>
+
+            <h3>Enlaces relativos</h3>
+
+            <p>Son enlaces que apuntan a páginas ubicadas dentro del mismo proyecto.</p>
+
+            <a href="helloworld.html">¡HELLO WORLD!</a>
+
+            <h3>Enlaces absolutos</h3>
+
+            <p>Son aquellos cuyo destino apunta a un documento fuera del sitio.</p>
+
+            <a href="https://www.youtube.com/watch?v=Xvm_yUjvPR4&t=338s">Mariano Mellino - Beats of Nature</a>
+
+            <h3>Enlaces internos</h3>
+
+            <p>Son aquellos que nos permiten referenciar secciones de nuestra página.</p>
+
+            <a href="#listas">Ir a Listas</a>
+
+            <p>También podemos usar como destino una sección específica de una página distinta</p>
+
+            <a href="helloworld.html#linkeado">Llevame al destino linkeado</a>
 
         </section>
     </main>
