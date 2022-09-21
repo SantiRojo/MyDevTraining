@@ -41,45 +41,70 @@ img{
 }
 
 .gridContainer{
+    width: 90%;
     height: 500px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: lightgray;
     display: grid;
-    grid-template-areas: "head head head" "navbar navbar navbar" "art1 art2 art3" "foot foot foot";
-    grid-column-gap: 20px;
-    grid-row-gap: 10px;
-    justify-content: space-around;
-    align-content: space-around;
+    grid-template-areas:
+    "element1 element1 element1 element1 element1 element1"
+    "element2 element2 element3 element3 element4 element4"
+    "element2 element2 element3 element3 element4 element4"
+    "element2 element2 element3 element3 element4 element4"
+    "element5 element5 element5 element6 element6 element6"
+    "element5 element5 element5 element6 element6 element6";
+    gap: 10px;
 }
 
-
-.gridItem1{
-    grid-area: head;
-    background-color: blue;
+.caja{
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.gridItem2{
-    grid-area: navbar;
-    background-color: red;
-    grid-column-end: 3;
+.caja1{
+    background-color: slateblue;
+    grid-area: element1;
+    /* grid-column: 1/4;
+    grid-row: 1/3; */
 }
 
-.gridItem3{
-    grid-area: art1;
-    background-color: green;
-    grid-row-end: 3;
+.caja2{
+    background-color: deeppink;
+    grid-area: element2;
+    /* grid-column: 4/6;
+    grid-row: 1/5; */
 }
 
-.gridItem4{
-    grid-area: art2;
-    background-color: yellow;
+.caja3{
+    background-color: seagreen;
+    grid-area: element3;
+    /* grid-column: 1/4;
+    grid-row: 3/5; */
 }
 
-.gridItem5{
-    grid-area: art3;
-    background-color: orange;
+.caja4{
+    background-color: brown;
+    grid-area: element4;
+    /* grid-column: 1/-1;
+    grid-row: 5/-1; */
 }
 
-.gridItem6{
-    grid-area: foot;
-    background-color: pink;
+.caja5{
+    background-color: lightcoral;
+    grid-area: element5;
 }
 
+.caja6{
+    background-color: lightseagreen;
+    grid-area: element6;
+}
+
+@media (max-width:768px){
+    .caja6{
+        background-color: #e55a00
+    }
+};
