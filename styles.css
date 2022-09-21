@@ -39,3 +39,47 @@ img{
     height: 100px;
     background-color: #0085Fd;
 }
+
+.gridContainer{
+    height: 500px;
+    display: grid;
+    grid-template-areas: "head head head" "navbar navbar navbar" "art1 art2 art3" "foot foot foot";
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+
+.gridItem1{
+    grid-area: head;
+    background-color: blue;
+}
+
+.gridItem2{
+    grid-area: navbar;
+    background-color: red;
+    grid-column-end: 3;
+}
+
+.gridItem3{
+    grid-area: art1;
+    background-color: green;
+    grid-row-end: 3;
+}
+
+.gridItem4{
+    grid-area: art2;
+    background-color: yellow;
+}
+
+.gridItem5{
+    grid-area: art3;
+    background-color: orange;
+}
+
+.gridItem6{
+    grid-area: foot;
+    background-color: pink;
+}
+
