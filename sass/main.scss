@@ -1,0 +1,20 @@
+@import "colors";
+@import "mixins";
+
+body{
+    background-color: $azul-oscuro;
+}
+
+h1{
+    color: $beige;
+    font-size: 80px;
+}
+
+img{
+    @include fotos;
+}
+
+h2{
+    @extend h1;
+    color: $azul-claro;
+}
