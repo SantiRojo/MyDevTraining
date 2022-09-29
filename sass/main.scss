@@ -1,5 +1,6 @@
 @import "colors";
 @import "mixins";
+@import "fotosSizes";
 
 body{
     background-color: $azul-oscuro;
@@ -17,4 +18,12 @@ img{
 h2{
     @extend h1;
     color: $azul-claro;
+}
+
+p{
+    color: $beige;
+}
+
+#boke{
+    width: $grande/2;
 }
