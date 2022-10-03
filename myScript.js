@@ -59,7 +59,7 @@ while(color != "ESC"){
 
 let edad = 0; */
 
-do{
+/* do{
     edad = parseInt(prompt("Ingrese su edad"))
 
     switch(edad){
@@ -80,6 +80,44 @@ do{
             break;
     }
     
-}while(edad < 18);
+}while(edad < 18); */
 
- 
+// Función convencional
+
+/* function saludar(){
+    alert("Hola Santi!");
+}
+
+saludar(); */
+
+// Función anónima
+
+/* const sumar = function (a,b){return a + b};
+
+let resultadoSuma = sumar(3,4);
+
+alert(resultadoSuma); */
+
+// Función flecha
+
+/* const restar = (a,b)=>{return a - b}
+
+let resultadoResta = restar(2022,1995);
+
+alert(resultadoResta); */
+
+// Función para calcular precio final con dto
+
+/* const suma = (a,b) => a +b;
+const resta = (a,b) => a - b;
+const iva = x => x * 0.21;
+const descuento = x => x * 0.15; 
+let precioProducto = 500;
+
+
+let nuevoPrecio = resta(suma(precioProducto,iva(precioProducto)),descuento(precioProducto));
+
+alert("El nuevo precio es $"+nuevoPrecio); */
+
+// OBJETOS
+
