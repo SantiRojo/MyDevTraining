@@ -251,7 +251,7 @@ console.log(resultado3);
 //Recorriendo el array con ciclo For
 
 for (let i = 0; i < 10; i++){
-    alert(numeros[i]);
+    console.log(numeros[i]);
 }
 
 //Recorriendo el array con ciclo For sin saber la longitud del array
@@ -259,3 +259,155 @@ for (let i = 0; i < 10; i++){
 for(let i = 0; i < numeros.length;i++){
     console.log(numeros[i]);
 }
+
+// Métodos más comunes
+
+// .toString() [Devuelve un string con los elementos del array]
+const miArray = ["marca",3,"palabra"];
+
+console.log(miArray.toString())
+
+// .push() [Añade elementos al final del array]
+console.log(miArray);
+
+miArray.push(numeros[2])
+
+console.log(miArray);
+
+miArray.push("Santi");
+
+console.log(miArray);
+
+// .unshift() [Añade elementos al inicio de un array]
+miArray.unshift(2);
+
+console.log(miArray);
+
+// .pop() [Elimina el último elemento de un array]
+miArray.pop();
+
+console.log(miArray);
+
+// .shift() [Elimina el primer elemento de un array]
+miArray.shift();
+
+console.log(miArray);
+
+// .join() [Junta los elementos de un array en un string, separados por el separados que asignemos]
+
+let miArrayAString = miArray.join("-");
+
+console.log(miArrayAString);
+
+// .concat() [Crea un nuevo array compuesto por la unión de otros 2 arrays, siempre respetando el orden de los arrays que le pasemos]
+
+const arrayF = arrayC.concat(arrayB);
+
+console.log(arrayF); 
+
+// .slice() [Devuelve un nuevo array con un "recorte" de los elementos del array al cual aplicamos el método. Lleva dos parámetros: 1- la posición desde la que recorta y 2- la posición hasta la que recorta. Esta última es excluyente.]
+
+let recorte = numeros.slice(2,5);
+
+console.log(recorte); // [3, 4, 5]
+
+// .splice() [Permite eliminar 1 o más elementos de un array, siempre que conozcamos su índice. Recibe dos parámetros: 1- posición desde la que se elimina y 2- cantidad de elementos a eliminar]
+
+numeros.splice(3,4); //Eliminando del 4 al 7
+
+console.log(numeros) // [1, 2, 3, 8, 9, 10]
+
+// .indexOf() [Devuelve el índice de un elemento del array. Recibe por parámetro el elemento a buscar y devuelve su posición, si el elemento a buscar no existe en el array, devuelve -1.]
+
+const mascotas = ["Pilar", "Miguel", "Zeus"]
+
+console.log(mascotas.indexOf("Zeus")); // 2
+
+console.log(mascotas.indexOf("Oli")) // -1
+
+const eliminar = (nombre) => {
+    let index = mascotas.indexOf(nombre);
+    if(index != -1){
+        mascotas.splice(index, 1);
+    }else{
+        console.log("El elemento que intentas eliminar no existe en el array");
+    };
+};
+
+eliminar("Oli");
+
+console.log(mascotas);
+
+eliminar("Pilar");
+
+console.log(mascotas);
+
+// .includes() [Permite saber si el elemento que pasamos por parámetro existe o no dentro del array, devolviendo un valor booleano]
+
+console.log(mascotas.includes("Pilar"));
+
+console.log(mascotas.includes("Zeus"));
+
+// .reverse() [Invierte el orden de los elementos del array. ⚠️ Es un métdodo DESTRUCTIVO, es decir MODIFICA EL ARRAY ORIGINAL.]
+
+console.log(numeros);
+
+numeros.reverse();
+
+console.log(numeros);
+
+// Ejemplo de utilización de los métodos de array
+
+/* const listaNombres = [];
+let cantidad = 5;
+
+do{
+    let entrada = prompt("Ingresar nombre");
+    listaNombres.push(entrada.toUpperCase());
+    console.log(listaNombres.length);
+}while(listaNombres.length != cantidad)
+
+const nuevaLista = listaNombres.concat(["ANA","EMA"]);
+
+alert(nuevaLista.join("\n"));  */
+
+// RECORRIENDO ARRAYS
+
+// For...of [Permite recorrer un array ejecutando un bloque de códigop por cada elemento del objeto]
+
+// Ejemplo recorriendo un array de objetos
+
+/* const productos = [{id: 1, producto: "Arroz"},
+                   {id: 2, producto: "Fideos"},
+                   {id: 3, producto: "Pan"}];
+
+for (const producto of productos){
+    console.log("Id: " + producto.id + "\t" + producto["producto"]);
+} */
+
+// Ejemplo aplicando llamadas a métodos de objetos
+
+class Producto {
+    constructor(nombre, precio){
+        this.nombre = nombre.toUpperCase();
+        this.precio = parseFloat(precio);
+        this.vendido = false;
+    }
+    sumarIva(){
+        this.precio = this.precio * 1.21;
+    }
+}
+
+const productos = [];
+
+productos.push(new Producto("Arroz", "125"));
+productos.push(new Producto("Fideos", "70"));
+productos.push(new Producto("Pan", "50"));
+
+for(const producto of productos){
+    console.log(producto.precio);
+    producto.sumarIva();
+    console.log(producto.precio);
+}
+
+
