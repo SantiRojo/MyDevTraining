@@ -683,11 +683,81 @@ console.log(Math.random() * 100 + 45);
 // Ejemplo generador de números enteros aleatorios
 
 const generadorNumero = () => {
-    return Math.round(Math.random() * 100);
+    return Math.round(Math.random() * 100); // Retorna un número aleatorio entre 0 y 100
 }
 
 console.log(generadorNumero());
 
 
-// CLASE DATE
+// CLASE DATE [Clase que posee Javascript para representar fechas]
 
+console.log(new Date()); // Genera fecha y tiempo actual
+
+//--------------------------------------------------------------------
+
+// Constructor [Nos permite crear objetos date con fechas diferentes. Recibe por parámetro año, mes, día, hora, minutos, segundos y milisegundos (todos datos de tipo number)]
+
+console.log(new Date(2022, 0, 1));
+
+const miCumple = new Date(2022, 9, 15);
+
+console.log(miCumple);
+
+//--------------------------------------------------------------------
+
+// Obtener un valor singular de la fecha
+
+// .getFullYear() => retorna el number que representa el año creado
+console.log(miCumple.getFullYear()); // 2022
+
+// .getMonth() => retorna el number que representa el mes (entre 0 y 11)
+console.log(miCumple.getMonth()); // 9 (Octubre)
+
+// .getDay() => retorna el number que representa el día de la semana creado (1 = lunes, 7 = domingo)
+console.log(miCumple.getDay()); // 6 (Sábado)
+
+// .getDate() => retorna el number que representa el día creado
+console.log(miCumple.getDate()); // 15
+
+//--------------------------------------------------------------------
+
+// Presentación [La clase también tiene distintos métodos que presentan la fecha con distintos formatos posibles de tipo String] (Cambia el formato de acuerdo al idioma que tengamos configurado en el navegador)
+
+// .toDateString => Día de la semana, Mes, Fecha y Año
+console.log(miCumple.toDateString()); // Sat Oct 15 2022
+
+// .toLocalString() => dd/mm/aaaa hh:mm:ss (Esp) / mm/dd/yyyy hh:mm:ss (Eng) 
+console.log(miCumple.toLocaleString()); // 15/10/2022, 12:00:00 AM (Esp) / 10/15/2022, 12:00:00 AM (Eng)
+
+// .toLocaleDateString() =>  dd/mm/aaaa (Esp) / mm/dd/yyyy (Eng)
+console.log(miCumple.toLocaleDateString()); // 15/10/2022 (Esp) / 10/15/2022 (Eng)
+
+// .toTimeString() => hh:mm:ss [zona horaria] (Hora standard del país)
+console.log(miCumple.toTimeString()); // 00:00:00 GMT-0300 (Argentina Standard Time) 
+
+//--------------------------------------------------------------------
+
+// Diferencias [Es posible calcular la diferencia entre fechas pero entendiendo que los resultados se generan en milisegundos. Si quisiera calcular la diferencia entre dos fechas habría que generar cálculos adicionales sobre esta diferencia en milisegundos, lo cual no resulta muy agradable. Existen librerías que solucionan estos problemas de forma eficiente y rápida]
+
+// Ejemplos
+
+const navidad = new Date("December 25, 2022");
+const hoy = new Date("October 5, 2022");
+
+console.log(navidad - hoy);
+
+const milisegundosPorDia = 86400000;
+
+console.log((navidad - hoy) / milisegundosPorDia);
+
+//-----------------
+
+const inicio = new Date();
+
+for(let i = 0; i < 1000; i++){
+    console.log("Procesando...");
+}
+
+const final = new Date();
+
+console.log("El proceso tardó: " + (final - inicio) + " milisegundos");
