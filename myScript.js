@@ -907,3 +907,7 @@ let radioChecked = document.querySelector(".radio:checked");
 
 // [querySelector retorna el primer elemento que coincida con el parámetro de búsqueda, o sea un solo elemento. Si quiero obtener una colección de elementos, es necesario utilizar el método querySelectorAll() siguiendo el mismo comportamiento.]
 parrafo = document.querySelectorAll("p");
+
+//--------------------------------------------------------------------
+
+// EVENTOS
