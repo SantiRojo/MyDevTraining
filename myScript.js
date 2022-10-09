@@ -826,3 +826,84 @@ titulo.innerText += " en Mercedes";
 
 console.log(titulo.innerText);
 
+
+// innerHTML [Esta propiedad permitre definir el código HTML interno del elemento seleccionado. La diferencia con innerText es que el navegador lo interpreta como codigo html y no como contenido de texto, por lo que puedo asignar como string a la propiedad innerHTML de un elemento un bloque de código html que se reflejará en la forma de una nueva estructura de etiquetas y contenido interno]
+
+let container = document.getElementById("contenedor");
+
+container.innerHTML = "<h2>Hola mundo!</h2><p>Lorem ipsum</p>"
+
+// Al pasar un string con formato de etiquetas html y contenido a través de la propiedad innerHTML, el navegador lo interpreta como código html y genera nuevos nodos con su contenido dentro del elemento seleccionado
+
+
+// ClassName [A través de la propiedad ClassName de algún nodo seleccionado podemos acceder al atributo class del mismo y definir cuáles van a ser sus clases. Esto es de utilidad cuando queremos generar cambios dinámicos en el estilado de elementos, combinando la asignación de clases desde JS con los estilos y clases prearmadas en CSS]
+
+container.className= "container row";
+
+//--------------------------------------------------------------------
+
+// Crear y eliminar nodos [Si bien en la sección anterior reconocimos distintas formas de acceso para obtener elementos del DOM desde Javascript, quedan por definir mecanismos para cambiar ek contenido de una estructura HTML]
+
+// Crear un nodo nuevo con el método createElement: nos permite crear un nuevo nodo, especificando por parámetro el nombre de la etiqueta deseada.
+let parrafo = document.createElement("p");
+// Definir la estructura del nodo creado: ahora que tenemos un nuevo nodo, es necesario determinar cómo estará compuesto el interior del elemento. Esto podemos hacerlo empleando la propiedad innerHTML del nuevo elemento.
+parrafo.innerHTML = "<h2>¡Hola Santi!</h2>";
+// Añadir el nodo al DOM: para agregar el elemento creado, es necesario introducirlo como hijo de un elemento existente en el DOM. En este ejemplo, el nodo "parrafo" se introduce como hijo del nodo body, usando el método append, que inserta el nuevo elemento sobre el final del contenido del nodo padre seleccionado; si queremos insertarlo sobre el comiendo podemos utilizar el método prepend de forma similar.
+
+// Con el método append:
+document.body.append(parrafo);
+
+
+// Con el método prepend:
+
+let parrafo2 = document.createElement("p");
+
+parrafo2.innerText = "Esto es un párrafo inicial";
+
+document.body.prepend(parrafo2);
+
+// Eliminar un nodo del DOM: se selecciona de forma precisa a través de alguno de los métodos vistos y se aplica el método remove() sobre éste:
+parrafo2.remove();
+
+// Ejemplo aplicado:
+
+let listaPersonas = document.getElementById("listaPersonas");
+
+let personas = ["Doris", "Marcelo", "Fernando", "Santiago","Martín"];
+
+for(const persona of personas){
+    let li = document.createElement("li");
+    li.innerHTML = persona;
+    listaPersonas.append(li);
+}
+
+//--------------------------------------------------------------------
+
+// Plantillas de texto [También llamadas plantillas literales, son elementos que nos permiten simplificar la concatenación de strings y variables. Sirven para agrupar los valores de variables, así como las propiedades de objetos con strings de referencia, con la intención de generar salidas más legibles.]
+
+let producto = {id: 1, nombre: "Arroz", precio: 125};
+let concatenado = "ID: " + producto.id + " - Producto: " + producto.nombre + " $" + producto.precio;
+let plantilla = `ID: ${producto.id} - Producto: ${producto.nombre} $ ${producto.precio}`;
+
+console.log(concatenado);
+console.log(plantilla);
+
+let contenedorProducto = document.createElement("div");
+
+contenedorProducto.innerHTML = `<h3> ID: ${producto.id}</h3>
+                                <p>     Producto: ${producto.nombre}</p>
+                                <b> $ ${producto.precio}</b>`;
+
+document.body.append(contenedorProducto);
+
+// .querySelector() [Nos permite seleccionar nodos con la misma sintaxis que utilizamos en los selectores de CSS]
+
+let parrafo = document.querySelector("#container p"); // Por sintaxis de css para selectores
+let contenedor = document.querySelector("#container"); // Por selector de id con #
+parrafo = document.querySelector(".texto"); // Por selector de clases con .
+
+// [Lo interesante del querySelector es que también aplica a pseudo-clases de CSS, brindando un nivel más avanzado de presición]
+let radioChecked = document.querySelector(".radio:checked");
+
+// [querySelector retorna el primer elemento que coincida con el parámetro de búsqueda, o sea un solo elemento. Si quiero obtener una colección de elementos, es necesario utilizar el método querySelectorAll() siguiendo el mismo comportamiento.]
+parrafo = document.querySelectorAll("p");
