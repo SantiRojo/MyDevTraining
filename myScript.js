@@ -551,7 +551,7 @@ console.log(cursosActualizados); */ /* [
 
 // Reduce [Nos permite obtener un único valor tras iterar sobre el array. Recibe 2 parámetros: 1- recibe una función acumuladora y 2- el valor inicial del acumulador]
 
-// Ej:
+/* // Ej:
 
 const numeros = [1, 2, 3, 4, 5, 6];
 
@@ -569,7 +569,7 @@ const miCompra = [
 
 const totalCompra = miCompra.reduce((acc, el)=> acc + el.precio, 0);
 
-console.log(totalCompra); // 66250
+console.log(totalCompra); // 66250 */
 
 // Sort [Permite reordenar un array según un criterio que definamos. Es un método DESTRUCTIVO. Recibe una función de comparación por parámetro que recibe dos elementos del array a la vez y debe retornar un valor numérico (1, -1, 0) que indica qué elemento se posiciona antes o después]
 
@@ -611,7 +611,7 @@ arrayDeStrings.sort((a, b)=>{
 console.log(arrayDeStrings); // ['Salto', 'Luz', 'Hoja', 'Arbol'] */
 
 // Ejemplo aplicado:
-
+/* 
 const productos = [{id: 1, producto: "Arroz", precio: 125},
                   {id: 2, producto: "Fideos", precio: 70},
                   {id: 3, producto: "Pan", precio: 50},
@@ -628,21 +628,21 @@ console.log(baratos) // [{id: 2, producto: "Fideos", precio: 70}, {id: 3, produc
 
 const listaNombres = productos.map(producto => producto.producto);
 console.log(listaNombres); // ['Arroz', 'Fideos', 'Pan', 'Flan']
-
+ */
 // OBJETO MATH
 
 // Se puede aceder a algunas constantes matemáticas a través del objeto Math, como el número PI o la constante de Euler
-
+/* 
 console.log(Math.PI); // 3.141592653589793
-console.log(Math.E); // 2.718281828459045
+console.log(Math.E); // 2.718281828459045 */
 
 // Min y Max [Reciben una serie de argumentos numéricos y devuelven aquel que tenga el valor máximo o mínimo, según corresponda]
-
+/* 
 console.log(Math.max(55, 13, 0, -25, 93, 4)); // 93
 console.log(Math.min(55, 13, 0, -25, 93, 4)); // -25
-
+ */
 // Ceil, Floor y Round [Sirven para redondear algún valor numérico a un número entero cercano]
-
+/* 
 const pi = Math.PI; //3.141592653589793
 
 // CEIL: devuelve el entero mayor o igual más próximo
@@ -653,24 +653,24 @@ console.log(Math.floor(pi)); // 3
 
 // ROUND: devuelve el valor de un número redondeado al entero más cercano
 console.log(Math.round(pi)); // 3
-
+ */
 
 // Square Root [Retorna la raíz cuadrada de un número. Si se le envía un número negativo, el método retorna NaN]
-
+/* 
 console.log(Math.sqrt(9)); // 3
 console.log(Math.sqrt(2)); // 1.4142135623730951
 console.log(Math.sqrt(1)); // 1
-console.log(Math.sqrt(-1)); // NaN
+console.log(Math.sqrt(-1)); // NaN */
 
 
 // Random [Arroja un número pseudo-aleatorio entre 0 y 1, siendo 0 el límite inclusivo y 1 el exclusivo]
 
-console.log(Math.random()); 
+/* console.log(Math.random()); 
 console.log(Math.random());
-console.log(Math.random());
+console.log(Math.random()); */
 
 // [Para generar números aleatorios dentro de un rango deseado, distinto de 0-1, podemos multiplicar su resultado por el rango esperado. Además podemos sumar el límite inferior si lo necesitamos]
-
+/* 
 // Números entre 0 y 20
 console.log(Math.random() * 20);
 
@@ -688,23 +688,23 @@ const generadorNumero = () => {
 
 console.log(generadorNumero());
 
-
+ */
 // CLASE DATE [Clase que posee Javascript para representar fechas]
-
+/* 
 console.log(new Date()); // Genera fecha y tiempo actual
-
+ */
 //--------------------------------------------------------------------
 
 // Constructor [Nos permite crear objetos date con fechas diferentes. Recibe por parámetro año, mes, día, hora, minutos, segundos y milisegundos (todos datos de tipo number)]
-
+/* 
 console.log(new Date(2022, 0, 1));
 
 const miCumple = new Date(2022, 9, 15);
 
 console.log(miCumple);
-
+ */
 //--------------------------------------------------------------------
-
+/* 
 // Obtener un valor singular de la fecha
 
 // .getFullYear() => retorna el number que representa el año creado
@@ -718,11 +718,11 @@ console.log(miCumple.getDay()); // 6 (Sábado)
 
 // .getDate() => retorna el number que representa el día creado
 console.log(miCumple.getDate()); // 15
-
+ */
 //--------------------------------------------------------------------
 
 // Presentación [La clase también tiene distintos métodos que presentan la fecha con distintos formatos posibles de tipo String] (Cambia el formato de acuerdo al idioma que tengamos configurado en el navegador)
-
+/* 
 // .toDateString => Día de la semana, Mes, Fecha y Año
 console.log(miCumple.toDateString()); // Sat Oct 15 2022
 
@@ -734,30 +734,95 @@ console.log(miCumple.toLocaleDateString()); // 15/10/2022 (Esp) / 10/15/2022 (En
 
 // .toTimeString() => hh:mm:ss [zona horaria] (Hora standard del país)
 console.log(miCumple.toTimeString()); // 00:00:00 GMT-0300 (Argentina Standard Time) 
-
+ */
 //--------------------------------------------------------------------
 
 // Diferencias [Es posible calcular la diferencia entre fechas pero entendiendo que los resultados se generan en milisegundos. Si quisiera calcular la diferencia entre dos fechas habría que generar cálculos adicionales sobre esta diferencia en milisegundos, lo cual no resulta muy agradable. Existen librerías que solucionan estos problemas de forma eficiente y rápida]
 
 // Ejemplos
 
-const navidad = new Date("December 25, 2022");
+/* const navidad = new Date("December 25, 2022");
 const hoy = new Date("October 5, 2022");
 
 console.log(navidad - hoy);
 
 const milisegundosPorDia = 86400000;
 
-console.log((navidad - hoy) / milisegundosPorDia);
+console.log((navidad - hoy) / milisegundosPorDia); */
 
 //-----------------
 
-const inicio = new Date();
+/* const inicio = new Date();
 
 for(let i = 0; i < 1000; i++){
     console.log("Procesando...");
-}
+};
 
 const final = new Date();
 
-console.log("El proceso tardó: " + (final - inicio) + " milisegundos");
+console.log("El proceso tardó: " + (final - inicio) + " milisegundos"); */
+
+//--------------------------------------------------------------------
+
+// DOM
+
+// Accediendo al detalle por consola de las propiedades y métodos de los objetos
+/* console.dir(document);
+console.dir(document.head);
+console.dir(document.body) */
+
+// Accediendo a los elementod del DOM
+
+// Por id:
+/* let parrafo = document.getElementById("parrafo");
+
+console.log(parrafo.innerHTML);
+console.log(parrafo.innerText); */
+
+// Por clases
+/* let paises = document.getElementsByClassName("paises");
+
+console.log(paises[0].innerHTML);
+console.log(paises[1].innerHTML);
+console.log(paises[2].innerHTML); */
+
+// Por etiqueta
+/* let contenedores = document.getElementsByTagName("div");
+
+console.log(contenedores[0].innerHTML);
+console.log(contenedores[1].innerHTML);
+console.log(contenedores[2].innerHTML); */
+
+//--------------------------------------------------------------------
+
+// Los elementos obtenidos mediante .getElementsByClassName() y .getElementsByTagName() se encuentran contenidos en un array especial identificado como HTMLCollection, que podemos iterar con for...of con la intención de acceder a todos los elementos obtenidos con un recorrido:
+
+let paises = document.getElementsByClassName("paises");
+let contenedores = document.getElementsByTagName("div");
+
+for(const pais of paises){
+    console.log(pais.innerHTML);
+}
+
+for(const div of contenedores){
+    console.log(div.innerHTML);
+}
+
+//--------------------------------------------------------------------
+
+// Modificar nodos
+
+// innerText [Esta propiedad nos permite acceder y/o modificar el nodo de texto del algún elemento del DOM]
+
+let titulo = document.getElementById("titulo");
+
+console.log(titulo.innerText);
+
+titulo.innerText = "Aprendiendo Javascript";
+
+console.log(titulo.innerText);
+
+titulo.innerText += " en Mercedes";
+
+console.log(titulo.innerText);
+
