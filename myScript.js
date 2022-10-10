@@ -898,7 +898,7 @@ document.body.append(contenedorProducto);
 
 // .querySelector() [Nos permite seleccionar nodos con la misma sintaxis que utilizamos en los selectores de CSS]
 
-let parrafo = document.querySelector("#container p"); // Por sintaxis de css para selectores
+let parraf = document.querySelector("#container p"); // Por sintaxis de css para selectores
 let contenedor = document.querySelector("#container"); // Por selector de id con #
 parrafo = document.querySelector(".texto"); // Por selector de clases con .
 
@@ -910,4 +910,76 @@ parrafo = document.querySelectorAll("p");
 
 //--------------------------------------------------------------------
 
-// EVENTOS []
+// EVENTOS
+
+// Definiendo eventos [Para determinar qué eventos vamos a controlar en la página web es necesario emplear alguna de las siguientes notaciones:]
+
+// .addEventListener() => Permite definir qué evento escuchar sobre cualquier elemento del DOM. Estructura => elemento.addEventListener("evento", nombre del event handler)
+
+let contador = 0;
+
+const disminuir = () => {
+    contador--;
+    displayContador.innerHTML = contador;
+    console.log(contador);
+};
+
+const aumentar = () => {
+    contador++;
+    displayContador.innerHTML = contador;
+    console.log(contador);
+};
+
+let displayContador = document.getElementById("contador");
+
+displayContador.innerHTML = contador;
+
+let botonAumentar = document.getElementById("btnAumentar");
+
+botonAumentar.addEventListener("click", aumentar);
+
+let botonDisminuir = document.getElementById("btnDisminuir");
+
+botonDisminuir.addEventListener("click", disminuir);
+
+
+// on-event => Permite emplear la propiedad on-event para asignar el event handler, se escribe el prefijo on seguido de el nombre del evento. Estructura => elemento.on-event = () => {event handler}
+
+let botonReiniciar = document.getElementById("btnReiniciar");
+
+botonReiniciar.onclick = () => {
+    contador = 0;
+    displayContador.innerHTML = contador;
+    console.log(event.target);
+};
+
+
+// Atributo HTML => Se determina el evento a escuchar especificando el manejador del evento en el atributo de una etiqueta HTML. La denominación del atributo es idéntica al de la propiedad on-event:
+
+// <input type="button" value="CLICK2" onclick="alert("respuesta 3");"/>
+
+
+
+// Objeto Event
+
+let miFormulario = document.getElementById("formulario");
+
+miFormulario.addEventListener("submit", validarFormulario);
+
+function validarFormulario(e){
+
+//Cancelamos el comportamiento del evento
+e.preventDefault();
+
+//Obtenemos el elemento desde el cual se disparó el evento
+let formulario = e.target
+
+//Obtengo el valor del primero hijo <input type="text">
+console.log(formulario.children[0].value); 
+
+//Obtengo el valor del segundo hijo <input type="number"> 
+console.log(formulario.children[1].value);  
+
+console.log(formulario);
+
+};
