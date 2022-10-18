@@ -983,3 +983,103 @@ console.log(formulario.children[1].value);
 console.log(formulario);
 
 };
+
+//--------------------------------------------------------------------
+
+// STORAGE [Es un medio de almacenamiento en el cliente, podemos utilizarlo para guardar información de la aplicación en el navegador del usuario.]
+
+// La información almacenada en el storage tiene la estructura clave-valor.
+
+
+
+//LocalStorage => almacena datos en el navegador de forma indefinida o hasta que se borren los datos de navegación, la información persiste aunque reiniciemos el navegador e incluso el sistema operativo. Además, los datos se comparten entre pestañas, permitiendo que los valores almacenados puedan ser utilizados y actualizados en distintas pestañas del navegador.
+
+
+////// localStorage.setItem() => Este método se utiliza para almacenar datos en localStorage.
+
+// Métdo => localStorage.setItem(clave, valor)
+// clave = nombre para identificar el elemento
+// valor = valor/contenido del elemento
+
+localStorage.setItem('nombre','Santi');
+localStorage.setItem('apellido', 'Rojo');
+localStorage.setItem('edad', '27');
+
+
+// localStorae.getItem() => Este métdodo se utiliza para recuperar la información almacenada en localStorage. Es necesario emplear el nombre de clave como parámetro del método getItem() que retorna el valor asociado. Tener en cuenta que siempre lo hace como string, por ende, si necesitamos otro tipo de valor deberemos realizar su conversión, por ejemplo con el método parseInt().
+
+let nombre = localStorage.getItem('nombre');
+let apellido = localStorage.getItem('apellido');
+let edad = parseInt(localStorage.getItem('edad'));
+
+console.log(nombre);
+console.log(apellido);
+console.log(edad);
+
+
+
+// SessionStorage => almacena datos en el navegador hasta que el usuario cierra la ventana. Los datos solo existen dentro de la sesion actual, por ende no se comparte entre pestañas.
+
+// sessionStorage.setItem() y sessionStorage.getItem() funcionan igual que con locarStorage
+
+sessionStorage.setItem('equipo', 'Boca Jrs');
+sessionStorage.setItem('banda', 'Babasónicos');
+
+let equipo = sessionStorage.getItem('equipo');
+let banda = sessionStorage.getItem('banda');
+
+console.log(equipo);
+console.log(banda);
+
+
+//--------------------------------------------------------------------
+
+// Acceso de tipo objeto y recorrido
+
+// Con ciclo For...
+
+for(let i = 0; i < localStorage.length; i++){
+    let clave = localStorage.key(i);
+    console.log("Clave: " + clave);
+    console.log("Valor: " + localStorage.getItem(clave));
+}
+
+// Eliminar datos del storage => tenemos dos opciones:
+
+// 1) Por palabra clave: se elimina un único valor en el storage detallando la clave como parámetro del método removeItem()
+
+localStorage.setItem('bienvenida', '¡Hola Santi!');
+sessionStorage.setItem('esValido', true);
+
+localStorage.removeItem('bienvenida');
+sessionStorage.removeItem('esValido');
+
+// 2) Vaciado: eliminamos toda la información almacenada en el storage con el método clear()
+
+localStorage.clear();
+sessionStorage.clear();
+
+//--------------------------------------------------------------------
+
+// JSON (JavaScript Object Notation) => es un formato de texto plano que sirve para poder almacenar objetos en el storage, entre otros.
+
+const producto1 = { id: 2, producto: "Arroz"};
+
+localStorage.setItem('producto1', producto1); // Se guarda [object Object]
+
+// Convertir objetos a JSON => con el método JSON.stringify() podemos transformar un objeto Javascript a un string en formato JSON.
+
+const enJSON = JSON.stringify(producto1);
+
+console.log(enJSON);
+console.log(typeof producto1);
+concatenado.lastIndexOf(typeof enJSON);
+
+localStorage.setItem('producto1', enJSON);
+
+
+// Convertir JSON a objetos => con el método JSON.parse() podemos transformar un string en formato JSON a un objeto Javascript.
+
+const producto2 = JSON.parse(localStorage.getItem('producto1'))
+
+console.log(producto2.id);
