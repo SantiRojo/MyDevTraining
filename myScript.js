@@ -1083,3 +1083,197 @@ localStorage.setItem('producto1', enJSON);
 const producto2 = JSON.parse(localStorage.getItem('producto1'))
 
 console.log(producto2.id);
+
+//--------------------------------------------------------------------
+
+
+// Operadores avanzados => a medida que el lenguaje va evolucionando con el tiempo, aparecen nuevos operadores que nos permiten resolver tareas de forma simplificada.
+
+// Sugar Syntax => es el nombre que se le da a estos operadores que funcionan como simplificaciones de tareas más complejas.
+
+
+
+// AUMENTAR EL VALOR EN 1
+
+let num = 10;
+
+num = num + 1; // Forma tradicional
+
+num += 1; // 1ra forma simplificada, se puede usar también para aumentar cualquier cantidad de numeros
+
+num++; // 2da forma simplificada
+
+
+// OPERADOR TERNARIO => es una simplificación de if...else, consta de una estructura de sí o sí 3 partes: [condición ? caso1 : caso2]
+
+let temperatura = 31;
+
+if (temperatura > 30){
+    console.log('Día caluroso!');
+}else{
+    console.log('Día agradable');
+};
+
+temperatura -= 2;
+
+temperatura > 30 ? console.log('Día caluroso!') : console.log('Día agradable');
+
+// El operador ternario devuelve un return implícito para cada caso, por ende podemos utilizarlo para casos en los que dependemos del valor del return
+
+//Ej:
+
+const usuario = {
+    nombre: 'Santi',
+    edad: 27
+}
+
+// Forma tradicional
+/* 
+let permiso;
+
+if (usuario.edad >= 18){
+    permiso = true;
+}else{
+    permiso = false;
+}
+
+if (permiso){
+    console.log('Puede comprar cerveza');
+}else{
+    console.log('No puede comprar cerveza');
+}
+ */
+
+// Forma con operador ternario
+
+const permiso = (usuario.edad >= 18) ? true : false;
+
+permiso ? console.log('Puede comprar cerveza') : console.log('No puede cmprar cerveza');
+
+
+// OPERADOR LÓGICO AND => El operador lógico AND también es una reducción de un condicional, pero trata de ejecutar o retornar algo sólo si la condición es verdadera. Es decir es una reducción de un if sencillo con un solo bloque de ejecución.
+
+const carrito = [];
+
+// Forma tradicional
+
+if (carrito.length === 0){
+    console.log('El carrito está vacío!');
+}
+
+// con operador AND
+
+carrito.length === 0 && console.log('El carrito está vacío!');
+
+// Todos estos operadores también tienen un return implícito, por lo que se puede utilizar para asignar valores:
+
+const usuario1 = {
+    nombre: 'Zeus',
+    edad: 2
+}
+
+const registroIngreso = usuario1.edad < 3 && new Date();
+
+console.log(registroIngreso);
+
+// OPERADOR LÓGICO OR => funciona de manera similar al operador && pero con la diferencia de que consta de 2 operandos y no de una condición explícita => operando1 || operando2.   Retorna el operando de la izquierda si NO es falsy (es decir, es distinto de 0, null, undefined, NaN, false o string vacío) y sino retorna el de la derecha.
+
+// Ej:
+
+const mascota1 = {
+    nombre: 'Miguel',
+    edad: 3
+};
+
+const mascota2 = null;
+
+console.log(mascota1 || 'La mascota no existe');
+
+console.log(mascota2 || 'La mascota no existe');
+
+
+// NULLISH COALESCING ("??") => funciona igual que el operador || con la diferencia de que retorna el operador de la izquierda sólo si el de la derecha es null o undefined. Es útil cuando en la evaluación necesitamos incluir valores como el 0 o strings vacíos.
+
+// tabla de valores nullish
+
+console.log(0 ?? "Nullish") // 0
+console.log(40 ?? "Nullish") // 40
+console.log(null ?? "Nullish") // Nullish
+console.log(undefined ?? "Nullish") // Nullish
+console.log("Hola mundo" ?? "Nullish") // Hola mundo
+console.log("" ?? "Nullish") // ""
+console.log(NaN ?? "Nullish") // NaN
+console.log(true ?? "Nullish") // true
+console.log(false ?? "Nullish") // false
+
+
+//  ACCESO CNDICIONAL A UN OBJETO ("?") => Si intentamos acceder a un objeto que no existe, naturalmente obtendremos un error. Sin embargo, podemos utilizar el operador ? sobre la referencia de un objeto para condicionar su acceso y tener un mejor control de errores, ya que en caso de no existir dicha propiedad devolverá "undefined" y podemos combinarlo con los operadores || y ?? y evitar errores en la ejecución.
+
+const gato = null;
+
+// console.log(gato.nombre || 'La propiedad no existe'); // Uncaught TypeError: Cannot read properties of null (reading 'nombre') at myScript.js:1214:18
+
+console.log(gato?.nombre || 'La propiedad no existe');
+
+// También puede aplicarse sobre propiedades que sean objetos
+
+const estudiante = {
+    nombreEstudiante: 'Ignacio',
+    apellidoEstudiante: 'Rojo',
+    materias: {
+        sociologia: 'aprobado',
+        filosofia: 'aprobado',
+        psicologiaSocial: 'desaprobado'
+    }
+}
+
+console.log(estudiante?.materias?.filosofia || 'La materia consultada no existe');
+
+console.log(estudiante?.materias?.matematica || 'La materia consultada no existe');
+
+
+// DESESTRUCTURACIÓN => es una forma simplificada de crear variables con valores de propiedades de un objeto
+
+// Forma tradicional
+/* 
+let nombreEstudiante = estudiante.nombreEstudiante;
+
+let apellidoEstudiante = estudiante.apellidoEstudiante;
+
+console.log(nombreEstudiante);
+console.log(apellidoEstudiante);
+ */
+
+// Forma con desestructuración [let o const + {nombre de la variable 1, nombre de la variable 2} = nombre del objeto de referencia; (los nombres de las variables deben ser idénticos a los de las propiedades de las cuales van a tomar su valor)]
+
+let {nombreEstudiante, apellidoEstudiante} = estudiante;
+
+console.log(nombreEstudiante);
+console.log(apellidoEstudiante);
+
+// Forma para desestructurar una propiedad que a la vez es un objeto
+
+let {materias: {filosofia}} = estudiante;
+
+console.log(filosofia);
+
+// ALIAS => debido a que cuando desestructuramos un objeto el nombre de la propiedad y de la variable que almacene su valor deben ser iguales, suele darse el caso de tener variables con nombres poco descriptivos o apropiados, por eso podemos asignar alias a las propiedades que pasarán a ser el nombre de la variable donde almacenemos el valor de dicha propiedad.
+
+const item = {
+    item_id: 432,
+    product_name: 'Some product',
+    price_per_unit: 5600
+}
+
+const {
+    item_id: id,
+    product_name: name,
+    price_per_unit: precio
+} = item;
+
+console.log(id);
+console.log(name);
+console.log(precio);
+
+// DESESTRUCTURACIÓN EN PARÁMETROS
+
