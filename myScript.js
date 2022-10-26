@@ -1275,5 +1275,109 @@ console.log(id);
 console.log(name);
 console.log(precio);
 
-// DESESTRUCTURACIÓN EN PARÁMETROS
+// DESESTRUCTURACIÓN EN PARÁMETROS => Consiste en desestructurar objetos al pasarlos por parámetro directamente en el llamado de la función
 
+const product = {
+    id: 10,
+    nombre: 'Curso Javascript',
+    precio: 12500
+}
+
+// Forma desestructurando en el bloque
+const desestructurar = (item) => {
+    const {id, nombre} = item;
+    console.log(id, nombre);
+}
+
+desestructurar(product);
+
+// Forma desestructurando lo que reciba por parámetro
+const desestructiring = ( {id, nombre}) => {
+    console.log(id, nombre);
+}
+
+desestructiring(product);
+
+let botoncito = document.getElementById("botoncito");
+
+
+// DESESTRUCTURACIÓN DE ARRAYS => Podemos desestructurar arrays de forma similar a los objetos, pero en vez de utilizar llaves utilizamos corchetes. La desestructuración de arrays es POSICIONAL, es decir, declaramos las variables en orden y estas almacenan los valores de las mismas posiciones del array de referencia.
+
+const colores = ['azul', 'blanco', 'amarillo', 'rojo'];
+
+const [a, b] = colores;
+
+console.log(a,b); // azul blanco
+
+// No funciona aquí la coincidencia por nombre, sino que se toman los valores segun la posición. Si queremos acceder a otras posiciones, o mejor dicho omitir las primeras, podemos hacerlo dejando espacios vacíos con comas.
+
+const [,, c, d] = colores;
+
+console.log(c, d); // amarillo rojo
+
+
+
+// SPREAD (...) => Sirve para "desparramar" los elementos de un array cuando lo pasamos como parámetro, es decir, en lugar de pasar un array como tal, pasa como parámetro cada elemento individualmente 
+
+console.log(colores);
+
+console.log(...colores);
+
+// Es muy útil cuando trabajamos con funciones que no admiten arrays como parámetros. Por ej:
+
+const numbers = [54, 82, 76, 39, 22];
+
+console.log(Math.max(...numbers)); // 82
+
+// También podemos hacer spread de un array dentro de otras estructuras que lo admitan, como puede ser otro array o un objeto, lo que nos permite replicar el contenido de un array desntro de otra estructura. Si lo hacemos dentro de un objeto, cada propiedad toma como nombre el índice de los elementos.
+
+const nombres1 = ['Lu', 'Santi'];
+const nombres2 = ['Miguel', 'Pilar', 'Zeus'];
+
+// Spread de los dos arrays dentro de otro
+const allNames = [...nombres1, ...nombres2];
+
+console.log(allNames); // ['Lu', 'Santi', 'Miguel', 'Pilar', 'Zeus']
+
+// Spread del array en un objeto
+const nombresObj = {
+    ...allNames
+}
+
+console.log(nombresObj); // {0: 'Lu', 1: 'Santi', 2: 'Miguel', 3: 'Pilar', 4: 'Zeus'}
+
+// Spread de objetos => También se puede hacer spread de objetos, pero debe hacerse dentro de una estructura que lo permita, como por ejemplo otro objeto. Al hacer esto, cada par de clave-valor se replica y a la vez nos permite modificar o agregar las que queramos.
+
+const user1 = {
+    nombre: 'Juan',
+    edad: 24,
+    curso: 'Javascript'
+}
+
+// Lista todas las propiedades y valores de user1 dentro de otro objeto
+
+const user2 = {
+    ...user1
+};
+
+console.log(user2); // {nombre: 'Juan', edad: 24, curso: 'Javascript'}
+
+const user3 = {
+    ...user1,
+    curso: 'React JS',
+    email: 'juan@doe.com'
+};
+
+console.log(user3); // {nombre: 'Juan', edad: 24, curso: 'React JS', email: 'juan@doe.com'}
+
+
+// REST PARAMETERS => El operador spread también puede utilizarse dentro de la declaración de una función para indicar que queremos recibir una cantidad indeterminada de parámetros. Al hacer esto, todos los parámetros que reciba la función seran agrupados dentro de un array, con el cual podre trabajar dentro.
+
+// Ejemplo se función suma con rest parameters
+
+function sumar(...nums){
+    return nums.reduce((acc,n) => acc + n, 0);
+};
+
+console.log(sumar(3,8,4)); // 15
+console.log(sumar(6,7)); // 13
