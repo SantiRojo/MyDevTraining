@@ -1381,3 +1381,40 @@ function sumar(...nums){
 
 console.log(sumar(3,8,4)); // 15
 console.log(sumar(6,7)); // 13
+
+
+// LIBRERÍAS
+
+// Sweet Alert (Alerts)
+
+let sweetAlertLauncher = document.getElementById("sweetalert");
+
+sweetAlertLauncher.addEventListener('click', () => {
+    Swal.fire({
+        icon: 'success',
+        title: 'Sweet Alert is working!',
+        text: 'The usage is okay 🙌🏼',
+        confirmButtonText: 'Done',
+        allowEnterKey: false,
+        timer: 3000
+    })
+})
+
+// Toastify (Notifications)
+
+let toastifyLauncher = document.getElementById('toastify');
+
+toastifyLauncher.addEventListener('click', () => {
+    Toastify({
+        text: 'Toastify is working! ✨',
+        duration: 2500,
+        gravity: 'top',
+        position: 'center',
+        backgroundColor: '#2a9d8f'
+    }).showToast();
+});
+
+// Luxon (Time and Dates)
+
+
+
