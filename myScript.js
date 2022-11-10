@@ -1416,5 +1416,10 @@ toastifyLauncher.addEventListener('click', () => {
 
 // Luxon (Time and Dates)
 
+const DateTime = luxon.DateTime;
+
+const dt = DateTime.local(2022, 1, 25, 12, 10);
+
+console.log(dt.zoneName);
 
 
