@@ -1422,4 +1422,58 @@ const dt = DateTime.local(2022, 1, 25, 12, 10);
 
 console.log(dt.zoneName);
 
+// PROMISES & ASYNC
+
+// setTimeout => La función recibe 2 parámetros: el primero es una función de callback y el segundo es un valor numérico que representa milisegundos.
+
+const saludar = () => {
+    alert('Hi everyone!');
+}
+
+/* setTimeout(saludar, 3000); */
+
+
+for (let letra of "hola"){
+    setTimeout(() => {
+        console.log(letra);
+    }, 1000);
+};
+
+for (let letra of "mundo"){
+    setTimeout(() => {
+        console.log(letra);
+    },3000);
+};
+
+// setInterval => es similar al setTimeout(), tiene la misma sintaxis, pero la unidad de tiempo es un intervalo que marca cada cuánto se va a repetir la instrucción. Repite la instrucción por cada intervalo que seteemos hasta que indiquemos su detención o se cierre la app.
+
+let counter = 0;
+
+const interval = setInterval(() => {
+    counter++;
+
+    console.log('Counter: ' + counter);
+
+    if(counter >= 10){
+        clearInterval(interval)
+        console.log('Se removió el intervalo')
+    }
+}, 1000);
+
+
+// clearInterval() y clearTimeout() => con esta función podemos remover un Timeout o un Interval, solo debemos tenerlo almacenado en una variable y pasar dicha variable como parámetro en el llamado de la función
+
+let timeout = setTimeout(() => {
+    console.log('pasaron 2 segundos')
+}, 2000);
+
+clearTimeout(timeout); 
+
+let intervalo = setInterval(() => {
+    console.log('aca hay un intervalo');
+}, 5000);
+
+clearInterval(intervalo);
+
+// PROMESAS
 
